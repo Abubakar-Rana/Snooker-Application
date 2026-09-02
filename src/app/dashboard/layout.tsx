@@ -9,9 +9,12 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     <AuthProvider>
       <SidebarProvider>
         <MainNav />
-        <div className="flex flex-col flex-1 md:ml-[var(--sidebar-width-icon)] lg:ml-[var(--sidebar-width)] transition-[margin-left] duration-300 ease-in-out group-data-[sidebar-collapsed=true]/sidebar-wrapper:ml-0 group-data-[sidebar-collapsed=true]/sidebar-wrapper:md:ml-[var(--sidebar-width-icon)]">
+        {/* Sidebar renders its own spacer that reserves the width, so this
+            only needs to fill the remaining space. min-w-0 lets the grids
+            inside shrink instead of overflowing. */}
+        <div className="flex min-w-0 flex-1 flex-col">
           <Header />
-          <main className="flex-1 p-4 sm:p-6 lg:p-8">
+          <main className="min-w-0 flex-1 p-4 sm:p-6 lg:p-8">
             {children}
           </main>
         </div>

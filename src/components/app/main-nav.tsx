@@ -38,21 +38,17 @@ export function MainNav() {
   };
 
   return (
-    <Sidebar
-      collapsible="icon"
-      className="hidden sm:flex flex-col"
-      variant="sidebar"
-    >
-      <SidebarHeader className="h-16 flex items-center justify-center p-4">
+    <Sidebar collapsible="icon" variant="sidebar">
+      <SidebarHeader className="h-16 flex items-center justify-center p-4 group-data-[collapsible=icon]:p-2">
         <Link href="/dashboard" className="flex items-center gap-2">
-          <CueMasterLogo className="w-8 h-8" />
+          <CueMasterLogo className="w-8 h-8 shrink-0" />
           <span className="font-headline text-lg font-bold text-sidebar-foreground group-data-[collapsible=icon]:hidden">
             Cue Master
           </span>
         </Link>
       </SidebarHeader>
       
-      <SidebarMenu className="flex-1 px-4">
+      <SidebarMenu className="flex-1 px-4 group-data-[collapsible=icon]:px-2">
         {menuItems.map(({ href, label, icon: Icon }) => (
           <SidebarMenuItem key={href}>
             <SidebarMenuButton
@@ -69,7 +65,7 @@ export function MainNav() {
         ))}
       </SidebarMenu>
 
-      <SidebarFooter className="p-4">
+      <SidebarFooter className="p-4 group-data-[collapsible=icon]:p-2">
           <SidebarMenu>
             <SidebarMenuItem>
                 <SidebarMenuButton onClick={handleLogout} tooltip={{ children: "Logout", side: 'right' }}>
